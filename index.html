@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>C C# C++ Code Studio.ARnc</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+--bg:#0b1020;
+--panel:#151d30;
+--text:#f1f5ff;
+--muted:#9baac2;
+--border:#293650;
+--accent:#638cff;
+}
+
+body.light{
+--bg:#eef2f8;
+--panel:#fff;
+--text:#172238;
+--muted:#66748a;
+--border:#d6deeb;
+--accent:#315ed8;
+}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:Arial,sans-serif;
+transition:.2s;
+}
+
+header{
+padding:17px;
+background:var(--panel);
+border-bottom:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+header h2{margin:0;font-size:21px}
+
+main{
+width:100%;
+max-width:none;
+margin:0;
+padding:18px;
+}
+
+/* Use the full available desktop display */
+html,body{width:100%;min-height:100%;}
+.workspace{width:100%;}
+.box{min-width:0;}
+
+
+.toolbar{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+margin-bottom:15px;
+}
+
+button,select,input{
+padding:11px 14px;
+border:1px solid var(--border);
+border-radius:8px;
+background:var(--panel);
+color:var(--text);
+font-size:14px;
+cursor:pointer;
+}
+
+button:hover{opacity:.82}
+
+.run{
+background:var(--accent);
+color:white;
+border:0;
+font-weight:bold;
+}
+
+.workspace{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.box{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:11px;
+overflow:hidden;
+min-width:0;
+}
+
+.box-title{
+padding:13px;
+border-bottom:1px solid var(--border);
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+}
+
+textarea{
+width:100%;
+height:420px;
+resize:vertical;
+background:#080e1b;
+color:#c5e1ff;
+border:0;
+outline:0;
+padding:17px;
+font:14px/1.7 monospace;
+tab-size:4;
+white-space:pre;
+overflow:auto;
+}
+
+body.light textarea{
+background:#f6f8fc;
+color:#1b3152;
+}
+
+.output{
+height:420px;
+padding:17px;
+white-space:pre-wrap;
+overflow:auto;
+font:14px/1.7 monospace;
+background:#080e1b;
+color:#8df3a7;
+}
+
+body.light .output{
+background:#f6f8fc;
+color:#176c32;
+}
+
+.info{
+color:var(--muted);
+font-size:13px;
+line-height:1.7;
+margin-top:15px;
+}
+
+footer{
+margin-top:30px;
+padding:25px 15px;
+background:var(--panel);
+border-top:1px solid var(--border);
+text-align:center;
+line-height:2;
+}
+
+footer a{
+color:var(--accent);
+cursor:pointer;
+text-decoration:none;
+margin:0 12px;
+}
+
+footer a:hover{text-decoration:underline}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+z-index:1000;
+padding:15px;
+overflow:auto;
+}
+
+.modal-content{
+max-width:850px;
+margin:30px auto;
+padding:25px;
+background:var(--panel);
+color:var(--text);
+border:1px solid var(--border);
+border-radius:12px;
+line-height:1.8;
+}
+
+.modal-content h2{color:var(--accent)}
+
+.close{
+float:right;
+background:#e5484d;
+color:white;
+border:0;
+}
+
+.modal-body{
+white-space:normal;
+}
+
+@media(min-width:751px){
+  .workspace{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  textarea,.output{height:calc(100vh - 245px);min-height:360px;}
+}
+
+@media(max-width:750px){
+.workspace{grid-template-columns:1fr}
+textarea,.output{height:320px}
+main{padding:10px}
+header h2{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>⚡ C / C# / C++ Code Studio</h2>
+<button onclick="toggleTheme()">🌙 Theme</button>
+</header>
+
+<main>
+
+<div class="toolbar">
+
+<select id="language" onchange="changeLanguage()">
+<option value="c">C Language</option>
+<option value="cpp">C++ Language</option>
+<option value="cs">C# Language</option>
+</select>
+
+<button class="run" onclick="runCode()">▶ Run Code</button>
+
+<button onclick="clearCode()">Clear</button>
+
+<button onclick="copyCode()">Copy Code</button>
+
+<button onclick="downloadCode()">⬇ Download</button>
+
+<button onclick="document.getElementById('fileInput').click()">📂 Open File</button>
+
+<input type="file" id="fileInput" accept=".c,.cpp,.h,.hpp,.cs,.txt" hidden onchange="openFile(event)">
+
+<button onclick="saveCode()">💾 Save</button>
+
+<button onclick="toggleFullscreen()">⛶ Fullscreen</button>
+
+<select id="fontSize" onchange="changeFont()">
+<option value="12">12px</option>
+<option value="14" selected>14px</option>
+<option value="16">16px</option>
+<option value="18">18px</option>
+<option value="20">20px</option>
+</select>
+
+</div>
+
+<div class="toolbar">
+
+<label style="display:flex;align-items:center;gap:7px">
+<input type="checkbox" id="livePreview" checked>
+Live Preview
+</label>
+
+<button onclick="loadExample()">Example Code</button>
+
+<button onclick="insertHello()">Insert Hello World</button>
+
+<button onclick="downloadOutput()">Download Output</button>
+
+</div>
+
+<div class="workspace">
+
+<div class="box" id="editorBox">
+
+<div class="box-title">
+<span>📝 Code Editor</span>
+<span id="lineCount">Lines: 1</span>
+</div>
+
+<textarea id="editor" spellcheck="false"
+placeholder="Write your code here..."></textarea>
+
+</div>
+
+<div class="box">
+
+<div class="box-title">
+<span>💻 Output Console</span>
+<span id="status">Ready</span>
+</div>
+
+<div class="output" id="output">
+Welcome to C / C# / C++ Code Studio!
+
+Write your code and press Run Code.
+</div>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<b>Features:</b> Code Editor, Output Preview, Language Selector,
+Copy, Download, Clear, Theme Switcher, Live Preview,
+Fullscreen, File Upload and Local Save.
+
+<br><br>
+
+<b>Compiler Information:</b>
+This standalone version provides a basic local output preview.
+Full C, C# and C++ compilation requires a compatible WebAssembly
+compiler or an online compiler service.
+
+<br><br>
+
+<b>Keyboard Shortcuts:</b>
+<br>
+Ctrl + Enter : Run Code
+<br>
+Ctrl + S : Save Code
+<br>
+Tab : Insert indentation
+
+</div>
+
+</main>
+
+<footer>
+
+<b>⚡ C / C# / C++ Code Studio</b>
+
+<br>
+
+<a onclick="openModal('about')">About Website</a>
+
+<a onclick="openModal('privacy')">Privacy Policy</a>
+
+<a onclick="openModal('help')">Help & Support</a>
+
+<br>
+
+<small>© 2026 C Code Studio. All Rights Reserved.</small>
+
+</footer>
+
+<!-- ABOUT MODAL -->
+
+<div class="modal" id="about">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeModal('about')">✕ Close</button>
+
+<h2>About C / C# / C++ Code Studio</h2>
+
+<div class="modal-body">
+
+<h3>1. Introduction</h3>
+
+<p>
+Welcome to C / C# / C++ Code Studio, a browser-based coding
+workspace designed for students, beginners, learners and
+programming enthusiasts. The main purpose of this website
+is to provide a simple environment where users can write,
+edit, manage and preview basic programming code.
+</p>
+
+<h3>2. Website Purpose</h3>
+
+<p>
+This website provides a convenient interface for working
+with C, C++ and C# programming examples. It combines a
+code editor, output console, language selector, theme
+switcher and file management features in one interface.
+</p>
+
+<h3>3. Code Editor</h3>
+
+<p>
+The editor allows users to enter source code directly
+inside the browser. Users can edit existing programs,
+remove content, copy source code and download their
+programs for future use.
+</p>
+
+<h3>4. Supported Languages</h3>
+
+<p>
+The interface supports C, C++ and C# source code.
+Each language has its own example program and file
+extension. The preview system recognizes selected
+printing statements for educational demonstrations.
+</p>
+
+<h3>5. Output Console</h3>
+
+<p>
+The output console displays supported text output.
+It is intended for basic learning and demonstration.
+It is not a complete replacement for a professional
+compiler or development environment.
+</p>
+
+<h3>6. Live Preview</h3>
+
+<p>
+The Live Preview option allows users to control whether
+the basic output preview updates automatically while
+editing code. When disabled, users can manually execute
+the preview using the Run Code button.
+</p>
+
+<h3>7. Theme Support</h3>
+
+<p>
+The website provides a light and dark appearance.
+Users can choose the interface style that is comfortable
+for their working environment.
+</p>
+
+<h3>8. File Management</h3>
+
+<p>
+Users can open supported source files, download their
+code and save a working copy locally in the browser.
+Downloaded files can be opened in other compatible
+text editors or programming applications.
+</p>
+
+<h3>9. Educational Use</h3>
+
+<p>
+The website can be used for introductory programming
+practice, simple examples, syntax demonstrations and
+understanding the relationship between source code
+and text output.
+</p>
+
+<h3>10. Browser Compatibility</h3>
+
+<p>
+The interface is built with HTML, CSS and JavaScript.
+It is designed for modern browsers on desktop,
+tablet and mobile devices.
+</p>
+
+<h3>11. Standalone Architecture</h3>
+
+<p>
+This version does not require a dedicated backend
+server. Its interface and basic preview functions
+operate locally in the browser.
+</p>
+
+<h3>12. Limitations</h3>
+
+<p>
+A basic output preview cannot execute every programming
+instruction. Advanced features such as loops, functions,
+memory management, external libraries and complete
+compilation require a genuine compiler engine.
+</p>
+
+<h3>13. User Responsibility</h3>
+
+<p>
+Users should review their code before using it in
+important projects. This website is an educational
+tool and does not guarantee that a program is correct.
+</p>
+
+<h3>14. Future Development</h3>
+
+<p>
+Additional functionality may include syntax highlighting,
+multiple files, compiler integration, project management,
+advanced debugging and improved editor controls.
+</p>
+
+<h3>15. Contact</h3>
+
+<p>
+For questions about the website, users may contact
+the website administrator through the contact channel
+provided by the website owner.
+</p>
+
+<h3>16. Conclusion</h3>
+
+<p>
+C / C# / C++ Code Studio aims to make introductory
+programming practice accessible through a simple,
+organized and responsive interface.
+</p>
+
+</div>
+</div>
+</div>
+
+<!-- PRIVACY MODAL -->
+
+<div class="modal" id="privacy">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeModal('privacy')">✕ Close</button>
+
+<h2>Privacy Policy</h2>
+
+<div class="modal-body">
+
+<h3>1. Introduction</h3>
+
+<p>
+This Privacy Policy explains how the standalone
+C / C# / C++ Code Studio handles information when
+users interact with its features.
+</p>
+
+<h3>2. Information Collection</h3>
+
+<p>
+This version does not include a dedicated backend
+account system or server-side user database.
+Code entered into the editor is processed by
+the browser-based functionality.
+</p>
+
+<h3>3. Source Code</h3>
+
+<p>
+Users should understand that source code entered
+into the editor may remain in the browser when
+local saving features are used.
+Users should avoid entering passwords, private
+keys or confidential information.
+</p>
+
+<h3>4. Local Storage</h3>
+
+<p>
+The application may use browser local storage
+to preserve code between visits. Such information
+is stored within the user's browser environment.
+</p>
+
+<h3>5. File Downloads</h3>
+
+<p>
+When a user downloads source code, the browser
+creates a local file. The user controls where
+that file is saved.
+</p>
+
+<h3>6. File Uploads</h3>
+
+<p>
+Files selected through the Open File option
+are read by the browser for display in the editor.
+This standalone implementation does not upload
+those files to a website server.
+</p>
+
+<h3>7. Cookies</h3>
+
+<p>
+This version does not intentionally create
+advertising or tracking cookies. Browser
+features and hosting services may have
+their own separate behavior.
+</p>
+
+<h3>8. Third Party Services</h3>
+
+<p>
+The basic application does not require an
+external compiler service. If a future version
+integrates third-party services, their
+privacy practices should be reviewed separately.
+</p>
+
+<h3>9. Children's Privacy</h3>
+
+<p>
+The website is designed as a general educational
+coding interface. Users should not provide
+unnecessary personal information.
+</p>
+
+<h3>10. Data Security</h3>
+
+<p>
+Users should keep their devices and browsers
+updated and avoid using shared devices for
+confidential work.
+</p>
+
+<h3>11. Data Retention</h3>
+
+<p>
+Code saved through local storage may remain
+until it is overwritten or browser data is cleared.
+Users can remove locally stored information
+through their browser settings.
+</p>
+
+<h3>12. User Control</h3>
+
+<p>
+Users can clear editor content, remove saved
+browser data and control downloaded files
+through their device.
+</p>
+
+<h3>13. External Links</h3>
+
+<p>
+If external links are added in the future,
+those websites may have their own privacy
+policies and data practices.
+</p>
+
+<h3>14. Policy Changes</h3>
+
+<p>
+This policy may be updated when application
+features or data practices change.
+The latest version should be published
+on the website.
+</p>
+
+<h3>15. Consent</h3>
+
+<p>
+By using the application, users acknowledge
+that they have read this informational
+privacy policy.
+</p>
+
+<h3>16. Contact</h3>
+
+<p>
+Questions about privacy may be directed
+to the website administrator through
+the contact details provided by the owner.
+</p>
+
+<h3>17. Important Notice</h3>
+
+<p>
+This is a standalone educational implementation.
+Actual privacy practices may differ if the
+website is hosted with analytics, advertising,
+external APIs or other third-party services.
+____
+
+Contact us:
+Website: C C# C++ Code Studio.ARnc
+Privacy / Support Email: subham99209114@gmail.com
+Contact no: 7544095688
+</p>
+
+</div>
+</div>
+</div>
+
+<!-- HELP MODAL -->
+
+<div class="modal" id="help">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeModal('help')">✕ Close</button>
+
+<h2>Help & Support</h2>
+
+<p>
+1. Select C, C++ or C# from the language menu.
+</p>
+
+<p>
+2. Write your program in the code editor.
+</p>
+
+<p>
+3. Press Run Code to display supported output.
+</p>
+
+<p>
+4. Use Copy Code to copy the source code.
+</p>
+
+<p>
+5. Use Download to save the source file.
+</p>
+
+<p>
+6. Use Open File to load a local source file.
+</p>
+
+<p>
+7. Use Theme to switch between light and dark mode.
+</p>
+
+<p>
+8. Enable or disable Live Preview according to your needs.
+</p>
+
+</div>
+</div>
+
+<script>
+
+const editor=document.getElementById("editor");
+const output=document.getElementById("output");
+const language=document.getElementById("language");
+const status=document.getElementById("status");
+const livePreview=document.getElementById("livePreview");
+
+const examples={
+
+c:`#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\\n");
+    printf("Welcome to C Programming");
+    return 0;
+}`,
+
+cpp:`#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    cout << "Welcome to C++ Programming";
+    return 0;
+}`,
+
+cs:`using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello, World!");
+        Console.WriteLine("Welcome to C# Programming");
+    }
+}`
+
+};
+
+editor.value=examples.c;
+
+function changeLanguage(){
+editor.value=examples[language.value];
+updateLines();
+runCode();
+}
+
+function updateLines(){
+document.getElementById("lineCount").textContent=
+"Lines: "+editor.value.split("\n").length;
+}
+
+function decodeString(s){
+return s
+.replace(/\\n/g,"\n")
+.replace(/\\t/g,"\t")
+.replace(/\\r/g,"\r")
+.replace(/\\"/g,'"')
+.replace(/\\\\/g,'\\');
+}
+
+function runCode(){
+
+let code=editor.value;
+let lang=language.value;
+let result=[];
+
+if(lang==="c"){
+let regex=/printf\s*\(\s*"((?:\\.|[^"\\])*)"/g;
+let match;
+
+while((match=regex.exec(code))!==null){
+result.push(decodeString(match[1]));
+}
+}
+
+if(lang==="cpp"){
+let regex=/cout\s*<<\s*"((?:\\.|[^"\\])*)"/g;
+let match;
+
+while((match=regex.exec(code))!==null){
+result.push(decodeString(match[1]));
+}
+}
+
+if(lang==="cs"){
+let regex=/Console\.Write(?:Line)?\s*\(\s*"((?:\\.|[^"\\])*)"/g;
+let match;
+
+while((match=regex.exec(code))!==null){
+result.push(decodeString(match[1]));
+}
+}
+
+if(result.length){
+output.textContent=result.join("\n");
+status.textContent="Preview Complete";
+}else{
+output.textContent=
+"No supported print statement found.\n\n"+
+"This is a basic preview, not a complete compiler.";
+
+status.textContent="Preview";
+}
+
+}
+
+function clearCode(){
+editor.value="";
+output.textContent="Code and output cleared.";
+status.textContent="Cleared";
+updateLines();
+}
+
+async function copyCode(){
+try{
+await navigator.clipboard.writeText(editor.value);
+status.textContent="Copied!";
+}catch(e){
+editor.select();
+document.execCommand("copy");
+status.textContent="Copied!";
+}
+}
+
+function downloadCode(){
+
+let ext={c:"c",cpp:"cpp",cs:"cs"}[language.value];
+
+let blob=new Blob([editor.value],{type:"text/plain"});
+let url=URL.createObjectURL(blob);
+let a=document.createElement("a");
+
+a.href=url;
+a.download="program."+ext;
+a.click();
+
+setTimeout(()=>URL.revokeObjectURL(url),1000);
+status.textContent="Downloaded";
+}
+
+function saveCode(){
+try{
+localStorage.setItem("codeStudio_"+language.value,editor.value);
+status.textContent="Saved Locally";
+}catch(e){
+status.textContent="Save Failed";
+}
+}
+
+function openFile(event){
+let file=event.target.files[0];
+if(!file)return;
+
+let reader=new FileReader();
+
+reader.onload=function(){
+editor.value=reader.result;
+updateLines();
+if(livePreview.checked)runCode();
+status.textContent="File Loaded";
+};
+
+reader.readAsText(file);
+event.target.value="";
+}
+
+function downloadOutput(){
+
+let blob=new Blob([output.textContent],{type:"text/plain"});
+let url=URL.createObjectURL(blob);
+let a=document.createElement("a");
+
+a.href=url;
+a.download="output.txt";
+a.click();
+
+setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
+
+function changeFont(){
+editor.style.fontSize=document.getElementById("fontSize").value+"px";
+}
+
+function toggleFullscreen(){
+let box=document.getElementById("editorBox");
+
+if(!document.fullscreenElement){
+box.requestFullscreen?.();
+}else{
+document.exitFullscreen?.();
+}
+}
+
+function loadExample(){
+editor.value=examples[language.value];
+updateLines();
+if(livePreview.checked)runCode();
+}
+
+function insertHello(){
+editor.value=examples[language.value];
+updateLines();
+}
+
+function openModal(id){
+document.getElementById(id).style.display="block";
+document.body.style.overflow="hidden";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+document.body.style.overflow="";
+}
+
+document.querySelectorAll(".modal").forEach(modal=>{
+modal.addEventListener("click",function(e){
+if(e.target===modal){
+modal.style.display="none";
+document.body.style.overflow="";
+}
+});
+});
+
+editor.addEventListener("input",function(){
+
+updateLines();
+
+if(livePreview.checked){
+runCode();
+}
+
+});
+
+editor.addEventListener("keydown",function(e){
+
+if(e.key==="Tab"){
+e.preventDefault();
+
+let start=this.selectionStart;
+let end=this.selectionEnd;
+
+this.value=this.value.substring(0,start)+"    "+
+this.value.substring(end);
+
+this.selectionStart=this.selectionEnd=start+4;
+updateLines();
+}
+
+});
+
+document.addEventListener("keydown",function(e){
+
+if(e.ctrlKey&&e.key==="Enter"){
+e.preventDefault();
+runCode();
+}
+
+if(e.ctrlKey&&e.key.toLowerCase()==="s"){
+e.preventDefault();
+saveCode();
+}
+
+if(e.key==="Escape"){
+document.querySelectorAll(".modal").forEach(m=>{
+m.style.display="none";
+});
+document.body.style.overflow="";
+}
+
+});
+
+updateLines();
+
+</script>
+
+</body>
+</html>
