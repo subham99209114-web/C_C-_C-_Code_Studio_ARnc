@@ -9,1003 +9,493 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-MG0TLPTXT3');
 </script>
-  
 <title>C C# C++ Code Studio.ARnc</title>
-
 <style>
 *{box-sizing:border-box}
-
-:root{
---bg:#0b1020;
---panel:#151d30;
---text:#f1f5ff;
---muted:#9baac2;
---border:#293650;
---accent:#638cff;
-}
-
-body.light{
---bg:#eef2f8;
---panel:#fff;
---text:#172238;
---muted:#66748a;
---border:#d6deeb;
---accent:#315ed8;
-}
-
-body{
-margin:0;
-background:var(--bg);
-color:var(--text);
-font-family:Arial,sans-serif;
-transition:.2s;
-}
-
-header{
-padding:17px;
-background:var(--panel);
-border-bottom:1px solid var(--border);
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:10px;
-}
-
+:root{--bg:#0b1020;--panel:#151d30;--text:#f1f5ff;--muted:#9baac2;--border:#293650;--accent:#638cff}
+body.light{--bg:#eef2f8;--panel:#fff;--text:#172238;--muted:#66748a;--border:#d6deeb;--accent:#315ed8}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;transition:.2s}
+header{padding:17px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 header h2{margin:0;font-size:21px}
-
-main{
-width:100%;
-max-width:none;
-margin:0;
-padding:18px;
-}
-
-/* Use the full available desktop display */
-html,body{width:100%;min-height:100%;}
-.workspace{width:100%;}
-.box{min-width:0;}
-
-
-.toolbar{
-display:flex;
-gap:9px;
-flex-wrap:wrap;
-margin-bottom:15px;
-}
-
-button,select,input{
-padding:11px 14px;
-border:1px solid var(--border);
-border-radius:8px;
-background:var(--panel);
-color:var(--text);
-font-size:14px;
-cursor:pointer;
-}
-
-button:hover{opacity:.82}
-
-.run{
-background:var(--accent);
-color:white;
-border:0;
-font-weight:bold;
-}
-
-.workspace{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-
-.box{
-background:var(--panel);
-border:1px solid var(--border);
-border-radius:11px;
-overflow:hidden;
-min-width:0;
-}
-
-.box-title{
-padding:13px;
-border-bottom:1px solid var(--border);
-font-weight:bold;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:8px;
-}
-
-textarea{
-width:100%;
-height:420px;
-resize:vertical;
-background:#080e1b;
-color:#c5e1ff;
-border:0;
-outline:0;
-padding:17px;
-font:14px/1.7 monospace;
-tab-size:4;
-white-space:pre;
-overflow:auto;
-}
-
-body.light textarea{
-background:#f6f8fc;
-color:#1b3152;
-}
-
-.output{
-height:420px;
-padding:17px;
-white-space:pre-wrap;
-overflow:auto;
-font:14px/1.7 monospace;
-background:#080e1b;
-color:#8df3a7;
-}
-
-body.light .output{
-background:#f6f8fc;
-color:#176c32;
-}
-
-.info{
-color:var(--muted);
-font-size:13px;
-line-height:1.7;
-margin-top:15px;
-}
-
-footer{
-margin-top:30px;
-padding:25px 15px;
-background:var(--panel);
-border-top:1px solid var(--border);
-text-align:center;
-line-height:2;
-}
-
-footer a{
-color:var(--accent);
-cursor:pointer;
-text-decoration:none;
-margin:0 12px;
-}
-
-footer a:hover{text-decoration:underline}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:1000;
-padding:15px;
-overflow:auto;
-}
-
-.modal-content{
-max-width:850px;
-margin:30px auto;
-padding:25px;
-background:var(--panel);
-color:var(--text);
-border:1px solid var(--border);
-border-radius:12px;
-line-height:1.8;
-}
-
-.modal-content h2{color:var(--accent)}
-
-.close{
-float:right;
-background:#e5484d;
-color:white;
-border:0;
-}
-
-.modal-body{
-white-space:normal;
-}
-
-@media(min-width:751px){
-  .workspace{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
-  textarea,.output{height:calc(100vh - 245px);min-height:360px;}
-}
-
-@media(max-width:750px){
-.workspace{grid-template-columns:1fr}
-textarea,.output{height:320px}
-main{padding:10px}
-header h2{font-size:17px}
-}
+main{width:100%;max-width:none;margin:0;padding:18px}
+html,body{width:100%;min-height:100%}.workspace{width:100%}.box{min-width:0}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
+button,select,input{padding:11px 14px;border:1px solid var(--border);border-radius:8px;background:var(--panel);color:var(--text);font-size:14px;cursor:pointer}
+button:hover{opacity:.82}.run{background:var(--accent);color:white;border:0;font-weight:bold}
+.workspace{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.box{background:var(--panel);border:1px solid var(--border);border-radius:11px;overflow:hidden;min-width:0}
+.box-title{padding:13px;border-bottom:1px solid var(--border);font-weight:bold;display:flex;justify-content:space-between;align-items:center;gap:8px}
+textarea{width:100%;height:420px;resize:vertical;background:#080e1b;color:#c5e1ff;border:0;outline:0;padding:17px;font:14px/1.7 monospace;tab-size:4;white-space:pre;overflow:auto}
+body.light textarea{background:#f6f8fc;color:#1b3152}
+.output{height:420px;padding:17px;white-space:pre-wrap;overflow:auto;font:14px/1.7 monospace;background:#080e1b;color:#8df3a7}
+body.light .output{background:#f6f8fc;color:#176c32}
+.info{color:var(--muted);font-size:13px;line-height:1.7;margin-top:15px}
+footer{margin-top:30px;padding:25px 15px;background:var(--panel);border-top:1px solid var(--border);text-align:center;line-height:2}
+footer a{color:var(--accent);cursor:pointer;text-decoration:none;margin:0 12px}footer a:hover{text-decoration:underline}
+.modal{display:none;position:fixed;inset:0;background:#000b;z-index:1000;padding:15px;overflow:auto}
+.modal-content{max-width:850px;margin:30px auto;padding:25px;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:12px;line-height:1.8}
+.modal-content h2{color:var(--accent)}.close{float:right;background:#e5484d;color:white;border:0}.modal-body{white-space:normal}
+@media(min-width:751px){.workspace{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}textarea,.output{height:calc(100vh - 245px);min-height:360px}}
+@media(max-width:750px){.workspace{grid-template-columns:1fr}textarea,.output{height:320px}main{padding:10px}header h2{font-size:17px}}
 </style>
 </head>
-
 <body>
-
-<header>
-<h2>⚡ C / C# / C++ Code Studio</h2>
-<button onclick="toggleTheme()">🌙 Theme</button>
-</header>
-
+<header><h2>⚡ C / C# / C++ Code Studio</h2><button onclick="toggleTheme()">🌙 Theme</button></header>
 <main>
-
 <div class="toolbar">
-
 <select id="language" onchange="changeLanguage()">
-<option value="c">C Language</option>
-<option value="cpp">C++ Language</option>
-<option value="cs">C# Language</option>
+<option value="c">C Language</option><option value="cpp">C++ Language</option><option value="cs">C# Language</option>
 </select>
-
-<button class="run" onclick="runCode()">▶ Run Code</button>
-
-<button onclick="clearCode()">Clear</button>
-
-<button onclick="copyCode()">Copy Code</button>
-
-<button onclick="downloadCode()">⬇ Download</button>
-
+<button class="run" onclick="runCode()">▶ Run Code</button><button onclick="clearCode()">Clear</button><button onclick="copyCode()">Copy Code</button><button onclick="downloadCode()">⬇ Download</button>
 <button onclick="document.getElementById('fileInput').click()">📂 Open File</button>
-
 <input type="file" id="fileInput" accept=".c,.cpp,.h,.hpp,.cs,.txt" hidden onchange="openFile(event)">
-
-<button onclick="saveCode()">💾 Save</button>
-
-<button onclick="toggleFullscreen()">⛶ Fullscreen</button>
-
-<select id="fontSize" onchange="changeFont()">
-<option value="12">12px</option>
-<option value="14" selected>14px</option>
-<option value="16">16px</option>
-<option value="18">18px</option>
-<option value="20">20px</option>
-</select>
-
+<button onclick="saveCode()">💾 Save</button><button onclick="toggleFullscreen()">⛶ Fullscreen</button>
+<select id="fontSize" onchange="changeFont()"><option value="12">12px</option><option value="14" selected>14px</option><option value="16">16px</option><option value="18">18px</option><option value="20">20px</option></select>
 </div>
-
 <div class="toolbar">
-
-<label style="display:flex;align-items:center;gap:7px">
-<input type="checkbox" id="livePreview" checked>
-Live Preview
-</label>
-
-<button onclick="loadExample()">Example Code</button>
-
-<button onclick="insertHello()">Insert Hello World</button>
-
-<button onclick="downloadOutput()">Download Output</button>
-
+<label style="display:flex;align-items:center;gap:7px"><input type="checkbox" id="livePreview" checked> Live Preview</label>
+<button onclick="loadExample()">Example Code</button><button onclick="insertHello()">Insert Hello World</button><button onclick="downloadOutput()">Download Output</button>
 </div>
-
 <div class="workspace">
-
 <div class="box" id="editorBox">
-
-<div class="box-title">
-<span>📝 Code Editor</span>
-<span id="lineCount">Lines: 1</span>
+<div class="box-title"><span>📝 Code Editor</span><span id="lineCount">Lines: 1</span></div>
+<textarea id="editor" spellcheck="false" placeholder="Write your code here..."></textarea>
 </div>
-
-<textarea id="editor" spellcheck="false"
-placeholder="Write your code here..."></textarea>
-
-</div>
-
 <div class="box">
+<div class="box-title"><span>💻 Output Console</span><span id="status">Ready</span></div>
+<div class="output" id="output">Welcome to C / C# / C++ Code Studio!
 
-<div class="box-title">
-<span>💻 Output Console</span>
-<span id="status">Ready</span>
+Write your code and press Run Code.</div>
 </div>
-
-<div class="output" id="output">
-Welcome to C / C# / C++ Code Studio!
-
-Write your code and press Run Code.
 </div>
-
-</div>
-
-</div>
-
 <div class="info">
-
-<b>Features:</b> Code Editor, Output Preview, Language Selector,
-Copy, Download, Clear, Theme Switcher, Live Preview,
-Fullscreen, File Upload and Local Save.
-
+<b>Mathematical Preview:</b> +, -, *, /, %, power (^), square root, factorial, abs, sin/cos/tan,
+inverse trigonometry, sinh/cosh/tanh, log/ln, exp, pow, min/max, floor, ceil, round, trunc,
+sign, constants π/PI and e/E, degrees/radians and common C/C++/C# Math functions.
 <br><br>
-
-<b>Compiler Information:</b>
-This standalone version provides a basic local output preview.
-Full C, C# and C++ compilation requires a compatible WebAssembly
-compiler or an online compiler service.
-
+<b>Compiler Information:</b> This browser version has an expanded mathematical output preview. It is still not a complete C/C++/C# compiler; unsupported language features require a real compiler.
 <br><br>
-
-<b>Keyboard Shortcuts:</b>
-<br>
-Ctrl + Enter : Run Code
-<br>
-Ctrl + S : Save Code
-<br>
-Tab : Insert indentation
-
+<b>Keyboard Shortcuts:</b><br>Ctrl + Enter : Run Code<br>Ctrl + S : Save Code<br>Tab : Insert indentation
 </div>
-
 </main>
-
 <footer>
-
-<b>⚡ C / C# / C++ Code Studio</b>
-
-<br>
-
-<a onclick="openModal('about')">About Website</a>
-
-<a onclick="openModal('privacy')">Privacy Policy</a>
-
-<a onclick="openModal('help')">Help & Support</a>
-
-<br>
-
+<b>⚡ C / C# / C++ Code Studio</b><br>
+<a onclick="openModal('about')">About Website</a><a onclick="openModal('privacy')">Privacy Policy</a><a onclick="openModal('help')">Help & Support</a><br>
 <small>© 2026 C Code Studio. All Rights Reserved.</small>
-
 </footer>
 
-<!-- ABOUT MODAL -->
-
-<div class="modal" id="about">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('about')">✕ Close</button>
-
-<h2>About C / C# / C++ Code Studio</h2>
-
-<div class="modal-body">
-
-<h3>1. Introduction</h3>
-
-<p>
-Welcome to C / C# / C++ Code Studio, a browser-based coding
-workspace designed for students, beginners, learners and
-programming enthusiasts. The main purpose of this website
-is to provide a simple environment where users can write,
-edit, manage and preview basic programming code.
-</p>
-
-<h3>2. Website Purpose</h3>
-
-<p>
-This website provides a convenient interface for working
-with C, C++ and C# programming examples. It combines a
-code editor, output console, language selector, theme
-switcher and file management features in one interface.
-</p>
-
-<h3>3. Code Editor</h3>
-
-<p>
-The editor allows users to enter source code directly
-inside the browser. Users can edit existing programs,
-remove content, copy source code and download their
-programs for future use.
-</p>
-
-<h3>4. Supported Languages</h3>
-
-<p>
-The interface supports C, C++ and C# source code.
-Each language has its own example program and file
-extension. The preview system recognizes selected
-printing statements for educational demonstrations.
-</p>
-
-<h3>5. Output Console</h3>
-
-<p>
-The output console displays supported text output.
-It is intended for basic learning and demonstration.
-It is not a complete replacement for a professional
-compiler or development environment.
-</p>
-
-<h3>6. Live Preview</h3>
-
-<p>
-The Live Preview option allows users to control whether
-the basic output preview updates automatically while
-editing code. When disabled, users can manually execute
-the preview using the Run Code button.
-</p>
-
-<h3>7. Theme Support</h3>
-
-<p>
-The website provides a light and dark appearance.
-Users can choose the interface style that is comfortable
-for their working environment.
-</p>
-
-<h3>8. File Management</h3>
-
-<p>
-Users can open supported source files, download their
-code and save a working copy locally in the browser.
-Downloaded files can be opened in other compatible
-text editors or programming applications.
-</p>
-
-<h3>9. Educational Use</h3>
-
-<p>
-The website can be used for introductory programming
-practice, simple examples, syntax demonstrations and
-understanding the relationship between source code
-and text output.
-</p>
-
-<h3>10. Browser Compatibility</h3>
-
-<p>
-The interface is built with HTML, CSS and JavaScript.
-It is designed for modern browsers on desktop,
-tablet and mobile devices.
-</p>
-
-<h3>11. Standalone Architecture</h3>
-
-<p>
-This version does not require a dedicated backend
-server. Its interface and basic preview functions
-operate locally in the browser.
-</p>
-
-<h3>12. Limitations</h3>
-
-<p>
-A basic output preview cannot execute every programming
-instruction. Advanced features such as loops, functions,
-memory management, external libraries and complete
-compilation require a genuine compiler engine.
-</p>
-
-<h3>13. User Responsibility</h3>
-
-<p>
-Users should review their code before using it in
-important projects. This website is an educational
-tool and does not guarantee that a program is correct.
-</p>
-
-<h3>14. Future Development</h3>
-
-<p>
-Additional functionality may include syntax highlighting,
-multiple files, compiler integration, project management,
-advanced debugging and improved editor controls.
-</p>
-
-<h3>15. Contact</h3>
-
-<p>
-For questions about the website, users may contact
-the website administrator through the contact channel
-provided by the website owner.
-</p>
-
-<h3>16. Conclusion</h3>
-
-<p>
-C / C# / C++ Code Studio aims to make introductory
-programming practice accessible through a simple,
-organized and responsive interface.
-</p>
-
-</div>
-</div>
-</div>
-
-<!-- PRIVACY MODAL -->
-
-<div class="modal" id="privacy">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('privacy')">✕ Close</button>
-
-<h2>Privacy Policy</h2>
-
-<div class="modal-body">
-
-<h3>1. Introduction</h3>
-
-<p>
-This Privacy Policy explains how the standalone
-C / C# / C++ Code Studio handles information when
-users interact with its features.
-</p>
-
-<h3>2. Information Collection</h3>
-
-<p>
-This version does not include a dedicated backend
-account system or server-side user database.
-Code entered into the editor is processed by
-the browser-based functionality.
-</p>
-
-<h3>3. Source Code</h3>
-
-<p>
-Users should understand that source code entered
-into the editor may remain in the browser when
-local saving features are used.
-Users should avoid entering passwords, private
-keys or confidential information.
-</p>
-
-<h3>4. Local Storage</h3>
-
-<p>
-The application may use browser local storage
-to preserve code between visits. Such information
-is stored within the user's browser environment.
-</p>
-
-<h3>5. File Downloads</h3>
-
-<p>
-When a user downloads source code, the browser
-creates a local file. The user controls where
-that file is saved.
-</p>
-
-<h3>6. File Uploads</h3>
-
-<p>
-Files selected through the Open File option
-are read by the browser for display in the editor.
-This standalone implementation does not upload
-those files to a website server.
-</p>
-
-<h3>7. Cookies</h3>
-
-<p>
-This version does not intentionally create
-advertising or tracking cookies. Browser
-features and hosting services may have
-their own separate behavior.
-</p>
-
-<h3>8. Third Party Services</h3>
-
-<p>
-The basic application does not require an
-external compiler service. If a future version
-integrates third-party services, their
-privacy practices should be reviewed separately.
-</p>
-
-<h3>9. Children's Privacy</h3>
-
-<p>
-The website is designed as a general educational
-coding interface. Users should not provide
-unnecessary personal information.
-</p>
-
-<h3>10. Data Security</h3>
-
-<p>
-Users should keep their devices and browsers
-updated and avoid using shared devices for
-confidential work.
-</p>
-
-<h3>11. Data Retention</h3>
-
-<p>
-Code saved through local storage may remain
-until it is overwritten or browser data is cleared.
-Users can remove locally stored information
-through their browser settings.
-</p>
-
-<h3>12. User Control</h3>
-
-<p>
-Users can clear editor content, remove saved
-browser data and control downloaded files
-through their device.
-</p>
-
-<h3>13. External Links</h3>
-
-<p>
-If external links are added in the future,
-those websites may have their own privacy
-policies and data practices.
-</p>
-
-<h3>14. Policy Changes</h3>
-
-<p>
-This policy may be updated when application
-features or data practices change.
-The latest version should be published
-on the website.
-</p>
-
-<h3>15. Consent</h3>
-
-<p>
-By using the application, users acknowledge
-that they have read this informational
-privacy policy.
-</p>
-
-<h3>16. Contact</h3>
-
-<p>
-Questions about privacy may be directed
-to the website administrator through
-the contact details provided by the owner.
-</p>
-
-<h3>17. Important Notice</h3>
-
-<p>
-This is a standalone educational implementation.
-Actual privacy practices may differ if the
-website is hosted with analytics, advertising,
-external APIs or other third-party services.
-____
-
-Contact us:
-Website: C C# C++ Code Studio.ARnc
-Privacy / Support Email: subham99209114@gmail.com
-Contact no: 7544095688
-</p>
-
-</div>
-</div>
-</div>
-
-<!-- HELP MODAL -->
-
-<div class="modal" id="help">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('help')">✕ Close</button>
-
-<h2>Help & Support</h2>
-
-<p>
-1. Select C, C++ or C# from the language menu.
-</p>
-
-<p>
-2. Write your program in the code editor.
-</p>
-
-<p>
-3. Press Run Code to display supported output.
-</p>
-
-<p>
-4. Use Copy Code to copy the source code.
-</p>
-
-<p>
-5. Use Download to save the source file.
-</p>
-
-<p>
-6. Use Open File to load a local source file.
-</p>
-
-<p>
-7. Use Theme to switch between light and dark mode.
-</p>
-
-<p>
-8. Enable or disable Live Preview according to your needs.
-</p>
-
-</div>
-</div>
+<div class="modal" id="about"><div class="modal-content"><button class="close" onclick="closeModal('about')">✕ Close</button><h2>About C / C# / C++ Code Studio</h2><div class="modal-body">
+<p>Welcome to C / C# / C++ Code Studio, a browser-based coding workspace for students, beginners, learners and programming enthusiasts. It provides an editor, output preview, language selector, theme controls and local file tools.</p>
+<h3>Mathematical Preview</h3><p>The enhanced preview understands many common mathematical expressions and standard-library style mathematical functions. It is intended for learning and quick demonstrations and should not be confused with a complete compiler.</p>
+<h3>Supported mathematical categories</h3><p>Arithmetic, modulus, powers, roots, factorials, trigonometric functions, inverse trigonometric functions, hyperbolic functions, logarithms, exponential functions, rounding, absolute value, sign, minimum/maximum, degree/radian conversion and common mathematical constants.</p>
+<p>Files are processed locally by this standalone interface. Users should review code before relying on it in important projects.</p>
+</div></div></div>
+
+<div class="modal" id="privacy"><div class="modal-content"><button class="close" onclick="closeModal('privacy')">✕ Close</button><h2>Privacy Policy</h2><div class="modal-body">
+<p>This standalone editor processes entered code and selected files in the browser. Local save uses browser storage. Downloaded files are controlled by the user.</p>
+<p>Google Analytics is installed with measurement ID G-MG0TLPTXT3, so analytics data may be processed according to Google's services and the website's hosting configuration.</p>
+<p>Do not enter passwords, private keys or other confidential information into the editor. Actual data practices can also depend on hosting and third-party services.</p>
+<p><b>Contact:</b><br>Website: C C# C++ Code Studio.ARnc<br>Privacy / Support Email: subham99209114@gmail.com<br>Contact no: 7544095688</p>
+</div></div></div>
+
+<div class="modal" id="help"><div class="modal-content"><button class="close" onclick="closeModal('help')">✕ Close</button><h2>Help & Support</h2>
+<p>1. Select C, C++ or C#.</p><p>2. Write code in the editor.</p><p>3. Use Run Code to preview supported output.</p><p>4. Mathematical expressions can be used inside supported print statements.</p>
+<p>Examples: <code>sqrt(25)</code>, <code>pow(2,10)</code>, <code>sin(PI/2)</code>, <code>log10(1000)</code>, <code>factorial(5)</code>, <code>5^3</code>, <code>abs(-25)</code>.</p>
+</div></div>
 
 <script>
-
-const editor=document.getElementById("editor");
-const output=document.getElementById("output");
-const language=document.getElementById("language");
-const status=document.getElementById("status");
-const livePreview=document.getElementById("livePreview");
+const editor=document.getElementById("editor"),output=document.getElementById("output"),language=document.getElementById("language"),status=document.getElementById("status"),livePreview=document.getElementById("livePreview");
 
 const examples={
-
 c:`#include <stdio.h>
+#include <math.h>
 
 int main() {
-    printf("Hello, World!\\n");
-    printf("Welcome to C Programming");
+    printf("Arithmetic: %g\\n", 12 + 5 * 2);
+    printf("Power: %g\\n", pow(2, 10));
+    printf("Square root: %g\\n", sqrt(144));
+    printf("Sin 90 degrees: %g\\n", sin(90 * M_PI / 180));
+    printf("Log10: %g\\n", log10(1000));
+    printf("Absolute: %g\\n", fabs(-25.5));
+    printf("Round: %g\\n", round(12.6));
     return 0;
 }`,
-
 cpp:`#include <iostream>
+#include <cmath>
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
-    cout << "Welcome to C++ Programming";
-    return 0;
+    cout << "Arithmetic: " << 12 + 5 * 2 << endl;
+    cout << "Power: " << pow(2, 10) << endl;
+    cout << "Square root: " << sqrt(144) << endl;
+    cout << "Sin 90 degrees: " << sin(90 * M_PI / 180) << endl;
+    cout << "Log10: " << log10(1000) << endl;
+    cout << "Absolute: " << fabs(-25.5) << endl;
+    cout << "Round: " << round(12.6) << endl;
 }`,
-
 cs:`using System;
 
 class Program {
     static void Main() {
-        Console.WriteLine("Hello, World!");
-        Console.WriteLine("Welcome to C# Programming");
+        Console.WriteLine("Arithmetic: " + (12 + 5 * 2));
+        Console.WriteLine("Power: " + Math.Pow(2, 10));
+        Console.WriteLine("Square root: " + Math.Sqrt(144));
+        Console.WriteLine("Sin 90 degrees: " + Math.Sin(Math.PI / 2));
+        Console.WriteLine("Log10: " + Math.Log10(1000));
+        Console.WriteLine("Absolute: " + Math.Abs(-25.5));
+        Console.WriteLine("Round: " + Math.Round(12.6));
     }
 }`
-
 };
-
 editor.value=examples.c;
 
-function changeLanguage(){
-editor.value=examples[language.value];
-updateLines();
-runCode();
+function changeLanguage(){editor.value=examples[language.value];updateLines();runCode();}
+function updateLines(){document.getElementById("lineCount").textContent="Lines: "+editor.value.split("\n").length;}
+function decodeString(s){return s.replace(/\\n/g,"\n").replace(/\\t/g,"\t").replace(/\\r/g,"\r").replace(/\\"/g,'"').replace(/\\\\/g,"\\");}
+
+/* ---------- Mathematical expression engine ---------- */
+const M={
+ pi:Math.PI,e:Math.E,
+ sqrt:Math.sqrt,cbrt:Math.cbrt,sqr:x=>x*x,cube:x=>x*x*x,
+ abs:Math.abs,fabs:Math.abs,
+ sin:Math.sin,cos:Math.cos,tan:Math.tan,
+ asin:Math.asin,acos:Math.acos,atan:Math.atan,atan2:Math.atan2,
+ sinh:Math.sinh,cosh:Math.cosh,tanh:Math.tanh,
+ asinh:Math.asinh,acosh:Math.acosh,atanh:Math.atanh,
+ log:Math.log,ln:Math.log,log10:Math.log10,log2:Math.log2,
+ log1p:Math.log1p,exp:Math.exp,expm1:Math.expm1,pow:Math.pow,
+ floor:Math.floor,ceil:Math.ceil,ceiling:Math.ceil,
+ round:Math.round,trunc:Math.trunc,truncate:Math.trunc,
+ min:Math.min,max:Math.max,sign:Math.sign,
+ fmod:(a,b)=>a%b,remainder:(a,b)=>a-b*Math.round(a/b),
+ hypot:Math.hypot,fmin:Math.min,fmax:Math.max,
+ clamp:(x,a,b)=>Math.min(Math.max(x,a),b),
+ degrees:x=>x*180/Math.PI,radians:x=>x*Math.PI/180,
+ deg2rad:x=>x*Math.PI/180,rad2deg:x=>x*180/Math.PI,
+ erf:function(x){
+   if(x===0)return 0;
+   const sign=x<0?-1:1, ax=Math.abs(x), t=1/(1+0.3275911*ax);
+   const y=1-((((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t)*Math.exp(-ax*ax);
+   return sign*y;
+ },
+ erfc:x=>1-M.erf(x),
+ csc:x=>1/Math.sin(x),sec:x=>1/Math.cos(x),cot:x=>1/Math.tan(x)
+};
+function factorial(n){
+ n=Number(n);
+ if(!Number.isFinite(n)||n<0||Math.floor(n)!==n||n>170)throw Error('factorial requires an integer from 0 to 170');
+ let r=1;for(let i=2;i<=n;i++)r*=i;return r;
+}
+M.factorial=factorial;M.fact=factorial;
+
+function normalizeMath(s){
+ let x=String(s);
+ x=x.replace(/\bstd::/g,'');
+ /* Constants from C/C++/C#. */
+ x=x.replace(/\b(?:M_PI(?:_f|_l)?|Math\.PI|math\.pi|PI|pi)\b/gi,'pi');
+ x=x.replace(/\b(?:M_E(?:_f|_l)?|Math\.E|math\.e|E)\b/g,'e');
+ /* Namespace/class prefixes. */
+ x=x.replace(/\b(?:System\.)?MathF?\./g,'');
+ x=x.replace(/\b(?:std::)?numbers::pi\b/gi,'pi');
+ /* C/C++/C# function names -> our lower-case names. */
+ const aliases={
+  Sqrt:'sqrt',Cbrt:'cbrt',Abs:'abs',Fabs:'fabs',Sin:'sin',Cos:'cos',Tan:'tan',
+  Asin:'asin',Acos:'acos',Atan:'atan',Atan2:'atan2',Sinh:'sinh',Cosh:'cosh',Tanh:'tanh',
+  Asinh:'asinh',Acosh:'acosh',Atanh:'atanh',Log:'log',Log10:'log10',Log2:'log2',
+  Log1p:'log1p',Exp:'exp',Expm1:'expm1',Pow:'pow',Floor:'floor',Ceiling:'ceil',Ceil:'ceil',
+  Round:'round',Truncate:'trunc',Trunc:'trunc',Min:'min',Max:'max',Sign:'sign',
+  FMod:'fmod',Remainder:'remainder',Hypot:'hypot',FMin:'fmin',FMax:'fmax',
+  Factorial:'factorial',Degrees:'degrees',Radians:'radians'
+ };
+ for(const [from,to] of Object.entries(aliases))x=x.replace(new RegExp('\\b'+from+'\\b','g'),to);
+ x=x.replace(/\b(?:std::)?(sin|cos|tan|sqrt|cbrt|pow|log|log10|log2|log1p|exp|expm1|abs|fabs|floor|ceil|round|trunc|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh|fmod|remainder|min|max|hypot|factorial|fact|degrees|radians|deg2rad|rad2deg|csc|sec|cot|erf|erfc)\b/gi,(m)=>m.toLowerCase());
+ /* Remove common numeric type casts. */
+ x=x.replace(/\(\s*(?:unsigned\s+|signed\s+)?(?:short\s+|long\s+)?(?:int|float|double|decimal|long\s+double)\s*\)/gi,'');
+ x=x.replace(/\b(?:unsigned\s+|signed\s+)?(?:short\s+|long\s+)?(?:long\s+double|double|float|int|decimal)\b/gi,'');
+ /* C/C++ floating suffixes. */
+ x=x.replace(/(\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)[fFlL]\b/g,'$1');
+ return x;
+}
+function replaceFactorials(s){
+ let x=s;
+ /* Simple numeric/identifier factorials. */
+ for(let i=0;i<6;i++){
+  const before=x;
+  x=x.replace(/(\b\d+(?:\.\d+)?\b|\b[A-Za-z_]\w*\b)!/g,'factorial($1)');
+  x=x.replace(/\(([^()]+)\)!/g,'factorial(($1))');
+  if(x===before)break;
+ }
+ return x;
+}
+function resolveVariables(code){
+ const raw={};
+ const re=/\b(?:const\s+)?(?:unsigned\s+|signed\s+)?(?:short\s+|long\s+)?(?:long\s+double|double|float|long|int|decimal|var)\s+([A-Za-z_]\w*)\s*=\s*([^;]+);/g;
+ let m;while((m=re.exec(code)))raw[m[1]]=m[2];
+ const vars={};
+ for(let pass=0;pass<30;pass++){
+  let changed=false;
+  for(const name of Object.keys(raw)){
+   try{const v=evaluate(raw[name],vars);if(Number.isFinite(Number(v))&&vars[name]!==Number(v)){vars[name]=Number(v);changed=true;}}catch(e){}
+  }
+  /* Also support later simple assignments such as: x = x + 5; */
+  const assigned=new Set(Object.keys(raw));
+  const ar=/\b([A-Za-z_]\w*)\s*=\s*([^;]+);/g;let am;
+  while((am=ar.exec(code))){
+   if(!assigned.has(am[1]))continue;
+   try{const v=evaluate(am[2],vars);if(Number.isFinite(Number(v))&&vars[am[1]]!==Number(v)){vars[am[1]]=Number(v);changed=true;}}catch(e){}
+  }
+  if(!changed)break;
+ }
+ return vars;
+}
+function evaluate(expr,vars={}){
+ let s=normalizeMath(expr).trim();
+ if(!s)throw Error('empty expression');
+ s=replaceFactorials(s);
+ s=s.replace(/\btrue\b/gi,'1').replace(/\bfalse\b/gi,'0');
+ /* Resolve variables, longest names first. */
+ for(const name of Object.keys(vars).sort((a,b)=>b.length-a.length)){
+  const val=Number(vars[name]);
+  if(Number.isFinite(val))s=s.replace(new RegExp('\\b'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','g'),String(val));
+ }
+ /* C/C++ ^ means exponentiation. Parentheses are preserved. */
+ s=s.replace(/\^/g,'**');
+ /* JavaScript rejects -2**2, so explicitly parenthesize unary signed bases. */
+ s=s.replace(/(^|[,(*/%+\-])-(\d+(?:\.\d+)?)(?=\*\*)/g,'$1(-$2)');
+ s=s.replace(/\bpi\b/g,'M_PI').replace(/\be\b/g,'M_E');
+ if(!/^[0-9A-Za-z_+\-*/%().,\s<>!=*]*$/.test(s))throw Error('unsupported expression');
+ const scope={...M,M_PI:Math.PI,M_E:Math.E};
+ const names=Object.keys(scope),values=names.map(k=>scope[k]);
+ return Function(...names,'"use strict";return ('+s+');')(...values);
+}
+function formatNumber(v){
+ if(typeof v!=='number'||!Number.isFinite(v))return String(v);
+ if(Math.abs(v)<1e-12)v=0;
+ return Number.isInteger(v)?String(v):String(Number(v.toPrecision(12)));
+}
+function evaluateTextExpression(expr,vars){
+ let s=String(expr).trim();
+ try{return formatNumber(Number(evaluate(s,vars)));}catch(e){return null;}
+}
+function splitArgs(s){
+ let out=[],start=0,depth=0,q=false;
+ for(let i=0;i<s.length;i++){
+  const c=s[i];
+  if(c==='"'&&s[i-1]!=='\\')q=!q;
+  if(q)continue;
+  if(c==='(')depth++;else if(c===')')depth--;
+  else if(c===','&&depth===0){out.push(s.slice(start,i));start=i+1;}
+ }
+ out.push(s.slice(start));return out;
+}
+function splitTopLevel(s,delimiter){
+ let out=[],start=0,d=0,q=false;
+ for(let i=0;i<s.length;i++){
+  const c=s[i];
+  if(c==='"'&&s[i-1]!=='\\')q=!q;if(q)continue;
+  if(c==='(')d++;else if(c===')')d--;
+  if(d===0&&s.startsWith(delimiter,i)){out.push(s.slice(start,i));start=i+delimiter.length;i+=delimiter.length-1;}
+ }
+ out.push(s.slice(start));return out;
+}
+function processPrintf(code,vars){
+ let result=[];
+ let i=0;
+ while(i<code.length){
+  const hit=code.indexOf('printf',i);
+  if(hit<0)break;
+  const before=hit>0?code[hit-1]:'';
+  const after=code[hit+6]||'';
+  if((/[A-Za-z0-9_$]/.test(before))||(/[A-Za-z0-9_$]/.test(after))){i=hit+6;continue;}
+  let p=hit+6;
+  while(/\s/.test(code[p]||''))p++;
+  if(code[p]!=='('){i=p+1;continue;}
+
+  let endPos=p+1,depth=1,q=false,esc=false;
+  for(;endPos<code.length;endPos++){
+   const ch=code[endPos];
+   if(q){
+    if(esc)esc=false;
+    else if(ch==='\\')esc=true;
+    else if(ch==='"')q=false;
+    continue;
+   }
+   if(ch==='"'){q=true;continue;}
+   if(ch==='(')depth++;
+   else if(ch===')'){
+    depth--;
+    if(depth===0)break;
+   }
+  }
+  if(depth!==0){i=hit+6;continue;}
+
+  const inside=code.slice(p+1,endPos);
+  const parts=splitArgs(inside);
+  if(parts.length){
+   let fmt=parts[0].trim();
+   if(/^"[\s\S]*"$/.test(fmt)){
+    fmt=decodeString(fmt.slice(1,-1));
+    const vals=parts.slice(1).map(x=>evaluateTextExpression(x,vars));
+    let idx=0;
+    fmt=fmt.replace(/%([-+0#]*)(\d+)?(?:\.(\d+))?([diuoxXfFeEgGcsp])/g,(token,flags,width,precision,type)=>{
+     const v=vals[idx++];
+     if(v===null||v===undefined)return token;
+     const n=Number(v),p=precision===undefined?null:Number(precision);
+     let out;
+     if(type==='c')out=String.fromCharCode(n);
+     else if(type==='s'||type==='p')out=String(v);
+     else if(type==='d'||type==='i'||type==='u')out=String(Math.trunc(n));
+     else if(type==='x')out=Math.trunc(n).toString(16);
+     else if(type==='X')out=Math.trunc(n).toString(16).toUpperCase();
+     else if(type==='o')out=Math.trunc(n).toString(8);
+     else if(type==='e'||type==='E')out=n.toExponential(p===null?6:p).replace('e',type==='E'?'E':'e');
+     else if(type==='f'||type==='F')out=n.toFixed(p===null?6:p);
+     else if(type==='g'||type==='G')out=p===null?formatNumber(n):Number(n.toPrecision(Math.max(1,p))).toString();
+     else out=String(v);
+     if((flags||'').includes('+')&&n>=0&&/[diuoxXfFeEgG]/.test(type))out='+'+out;
+     if(width){
+      const w=Number(width);
+      if(out.length<w){
+       const pad=(flags||'').includes('0')&&!((flags||'').includes('-'))?'0':' ';
+       out=(flags||'').includes('-')?out.padEnd(w,pad):out.padStart(w,pad);
+      }
+     }
+     return out;
+    });
+    result.push(fmt);
+   }else{
+    const v=evaluateTextExpression(fmt,vars);
+    if(v!==null)result.push(v);
+   }
+  }
+  i=endPos+1;
+ }
+ return result;
 }
 
-function updateLines(){
-document.getElementById("lineCount").textContent=
-"Lines: "+editor.value.split("\n").length;
+function processCout(code,vars){
+ let result=[],re=/(?:std::)?cout\s*<<\s*([\s\S]*?)\s*;/g,m;
+ while((m=re.exec(code))){
+  let line='';
+  for(let p of splitTopLevel(m[1],'<<')){
+   p=p.trim().replace(/\b(?:std::)?endl\b/g,'');if(!p)continue;
+   if(/^"[\s\S]*"$/.test(p))line+=decodeString(p.slice(1,-1));
+   else{const v=evaluateTextExpression(p,vars);line+=v===null?'[unsupported expression]':v;}
+  }
+  result.push(line);
+ }
+ return result;
 }
-
-function decodeString(s){
-return s
-.replace(/\\n/g,"\n")
-.replace(/\\t/g,"\t")
-.replace(/\\r/g,"\r")
-.replace(/\\"/g,'"')
-.replace(/\\\\/g,'\\');
+function processCSharp(code,vars){
+ let result=[],re=/Console\.Write(?:Line)?\s*\(([^;]*?)\)\s*;/g,m;
+ while((m=re.exec(code))){
+  let line='';
+  for(let p of splitTopLevel(m[1],'+')){
+   p=p.trim();if(/^"[\s\S]*"$/.test(p))line+=decodeString(p.slice(1,-1));
+   else{const v=evaluateTextExpression(p,vars);line+=v===null?'[unsupported expression]':v;}
+  }
+  result.push(line);
+ }
+ return result;
 }
 
 function runCode(){
-
-let code=editor.value;
-let lang=language.value;
-let result=[];
-
-if(lang==="c"){
-let regex=/printf\s*\(\s*"((?:\\.|[^"\\])*)"/g;
-let match;
-
-while((match=regex.exec(code))!==null){
-result.push(decodeString(match[1]));
-}
-}
-
-if(lang==="cpp"){
-let regex=/cout\s*<<\s*"((?:\\.|[^"\\])*)"/g;
-let match;
-
-while((match=regex.exec(code))!==null){
-result.push(decodeString(match[1]));
-}
+ try{
+  const code=editor.value,lang=language.value,vars=resolveVariables(code);let result=[];
+  if(lang==='c')result=processPrintf(code,vars);
+  if(lang==='cpp')result=processCout(code,vars);
+  if(lang==='cs')result=processCSharp(code,vars);
+  if(result.length){
+   output.textContent=result.join('\n');
+   status.textContent='Preview Complete';
+  }else{
+   output.textContent='No supported output statement found.\n\nTry: sqrt(25), pow(2,10), sin(PI/2), log10(1000), factorial(5), 5^3, abs(-25)';
+   status.textContent='Preview';
+  }
+ }catch(e){
+  output.textContent='Preview Error: '+(e&&e.message?e.message:String(e));
+  status.textContent='Preview Error';
+ }
 }
 
-if(lang==="cs"){
-let regex=/Console\.Write(?:Line)?\s*\(\s*"((?:\\.|[^"\\])*)"/g;
-let match;
-
-while((match=regex.exec(code))!==null){
-result.push(decodeString(match[1]));
-}
-}
-
-if(result.length){
-output.textContent=result.join("\n");
-status.textContent="Preview Complete";
-}else{
-output.textContent=
-"No supported print statement found.\n\n"+
-"This is a basic preview, not a complete compiler.";
-
-status.textContent="Preview";
-}
-
-}
-
-function clearCode(){
-editor.value="";
-output.textContent="Code and output cleared.";
-status.textContent="Cleared";
-updateLines();
-}
-
+function clearCode(){editor.value="";output.textContent="Code and output cleared.";status.textContent="Cleared";updateLines();}
 async function copyCode(){
-try{
-await navigator.clipboard.writeText(editor.value);
-status.textContent="Copied!";
-}catch(e){
-editor.select();
-document.execCommand("copy");
-status.textContent="Copied!";
+ try{
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+   await navigator.clipboard.writeText(editor.value);
+  }else{
+   editor.select();
+   if(!document.execCommand("copy")) throw new Error("Copy is not supported");
+  }
+  status.textContent="Copied!";
+ }catch(e){
+  status.textContent="Copy Failed";
+ }
 }
-}
-
 function downloadCode(){
-
-let ext={c:"c",cpp:"cpp",cs:"cs"}[language.value];
-
-let blob=new Blob([editor.value],{type:"text/plain"});
-let url=URL.createObjectURL(blob);
-let a=document.createElement("a");
-
-a.href=url;
-a.download="program."+ext;
-a.click();
-
-setTimeout(()=>URL.revokeObjectURL(url),1000);
-status.textContent="Downloaded";
+ try{
+  let ext={c:"c",cpp:"cpp",cs:"cs"}[language.value];
+  let blob=new Blob([editor.value],{type:"text/plain;charset=utf-8"});
+  let url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="program."+ext;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status.textContent="Downloaded";
+ }catch(e){status.textContent="Download Failed";}
 }
-
-function saveCode(){
-try{
-localStorage.setItem("codeStudio_"+language.value,editor.value);
-status.textContent="Saved Locally";
-}catch(e){
-status.textContent="Save Failed";
-}
-}
-
-function openFile(event){
-let file=event.target.files[0];
-if(!file)return;
-
-let reader=new FileReader();
-
-reader.onload=function(){
-editor.value=reader.result;
-updateLines();
-if(livePreview.checked)runCode();
-status.textContent="File Loaded";
-};
-
-reader.readAsText(file);
-event.target.value="";
-}
-
+function saveCode(){try{localStorage.setItem("codeStudio_"+language.value,editor.value);status.textContent="Saved Locally";}catch(e){status.textContent="Save Failed";}}
+function openFile(event){let file=event.target.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(){editor.value=reader.result;updateLines();if(livePreview.checked)runCode();status.textContent="File Loaded";};reader.readAsText(file);event.target.value="";}
 function downloadOutput(){
-
-let blob=new Blob([output.textContent],{type:"text/plain"});
-let url=URL.createObjectURL(blob);
-let a=document.createElement("a");
-
-a.href=url;
-a.download="output.txt";
-a.click();
-
-setTimeout(()=>URL.revokeObjectURL(url),1000);
+ try{
+  let blob=new Blob([output.textContent],{type:"text/plain;charset=utf-8"});
+  let url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="output.txt";
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status.textContent="Output Downloaded";
+ }catch(e){status.textContent="Output Download Failed";}
 }
-
-function toggleTheme(){
-document.body.classList.toggle("light");
+function toggleTheme(){document.body.classList.toggle("light");}
+function changeFont(){editor.style.fontSize=document.getElementById("fontSize").value+"px";}
+async function toggleFullscreen(){
+ try{
+  let box=document.getElementById("editorBox");
+  if(!document.fullscreenElement){
+   if(box.requestFullscreen) await box.requestFullscreen();
+   else status.textContent="Fullscreen Not Supported";
+  }else if(document.exitFullscreen){
+   await document.exitFullscreen();
+  }
+ }catch(e){
+  status.textContent="Fullscreen Not Available";
+ }
 }
-
-function changeFont(){
-editor.style.fontSize=document.getElementById("fontSize").value+"px";
-}
-
-function toggleFullscreen(){
-let box=document.getElementById("editorBox");
-
-if(!document.fullscreenElement){
-box.requestFullscreen?.();
-}else{
-document.exitFullscreen?.();
-}
-}
-
-function loadExample(){
-editor.value=examples[language.value];
-updateLines();
-if(livePreview.checked)runCode();
-}
-
+function loadExample(){editor.value=examples[language.value];updateLines();if(livePreview.checked)runCode();}
 function insertHello(){
-editor.value=examples[language.value];
-updateLines();
+ const hello={
+  c:'#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}',
+  cpp:'#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}',
+  cs:'using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine("Hello, World!");\n    }\n}'
+ };
+ const code=hello[language.value];
+ if(!code){status.textContent='Hello World Failed';return;}
+ editor.value=code;
+ editor.focus();
+ editor.setSelectionRange(editor.value.length,editor.value.length);
+ updateLines();
+ runCode();
+ status.textContent='Hello World Inserted';
 }
 
-function openModal(id){
-document.getElementById(id).style.display="block";
-document.body.style.overflow="hidden";
-}
-
-function closeModal(id){
-document.getElementById(id).style.display="none";
-document.body.style.overflow="";
-}
-
-document.querySelectorAll(".modal").forEach(modal=>{
-modal.addEventListener("click",function(e){
-if(e.target===modal){
-modal.style.display="none";
-document.body.style.overflow="";
-}
-});
-});
-
-editor.addEventListener("input",function(){
-
-updateLines();
-
-if(livePreview.checked){
-runCode();
-}
-
-});
-
-editor.addEventListener("keydown",function(e){
-
-if(e.key==="Tab"){
-e.preventDefault();
-
-let start=this.selectionStart;
-let end=this.selectionEnd;
-
-this.value=this.value.substring(0,start)+"    "+
-this.value.substring(end);
-
-this.selectionStart=this.selectionEnd=start+4;
-updateLines();
-}
-
-});
-
-document.addEventListener("keydown",function(e){
-
-if(e.ctrlKey&&e.key==="Enter"){
-e.preventDefault();
-runCode();
-}
-
-if(e.ctrlKey&&e.key.toLowerCase()==="s"){
-e.preventDefault();
-saveCode();
-}
-
-if(e.key==="Escape"){
-document.querySelectorAll(".modal").forEach(m=>{
-m.style.display="none";
-});
-document.body.style.overflow="";
-}
-
-});
-
-updateLines();
-
+function openModal(id){document.getElementById(id).style.display="block";document.body.style.overflow="hidden";}
+function closeModal(id){document.getElementById(id).style.display="none";document.body.style.overflow="";}
+document.querySelectorAll(".modal").forEach(modal=>modal.addEventListener("click",function(e){if(e.target===modal){modal.style.display="none";document.body.style.overflow="";}}));
+editor.addEventListener("input",function(){updateLines();if(livePreview.checked)runCode();});
+editor.addEventListener("keydown",function(e){if(e.key==="Tab"){e.preventDefault();let start=this.selectionStart,end=this.selectionEnd;this.value=this.value.substring(0,start)+"    "+this.value.substring(end);this.selectionStart=this.selectionEnd=start+4;updateLines();}});
+document.addEventListener("keydown",function(e){if(e.ctrlKey&&e.key==="Enter"){e.preventDefault();runCode();}if(e.ctrlKey&&e.key.toLowerCase()==="s"){e.preventDefault();saveCode();}if(e.key==="Escape"){document.querySelectorAll(".modal").forEach(m=>m.style.display="none");document.body.style.overflow="";}});
+updateLines();runCode();
 </script>
-
 </body>
 </html>
